@@ -19,7 +19,11 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import com.webservice.conexion.dao.DB2config;
+import com.webservice.entidades.Contenedor;
 import com.webservice.entidades.Product1;
+import com.webservice.entidades.Productgt;
+import com.webservice.entidades.Productjt;
+import jakarta.ws.rs.PathParam;
 
 /**
  * REST Web Service
@@ -44,40 +48,103 @@ public class ProductResource {
      * Retrieves representation of an instance of com.webservice.rest.PrductResource
      * @return an instance of java.lang.String
      */
+    
+    //Obtiene todos los datos 
     @GET
     @Path("/All")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getProducts() {
-        //TODO return proper representation object
         String json= null;
         String json2= null;
        try{
            List<Product> products = new ProductService().getAll();
            List<Product1> products2 = new ProductService().getAll1();
-           json= new Gson().toJson(products); 
-           json2= new Gson().toJson(products2); 
-           String[] str = new String[2];
+          // json= new Gson().toJson(products); 
+          // json2= new Gson().toJson(products2); 
+       /*    String[] str = new String[2];
            str[0] = json;
-           str[1] = json2;
+           str[1] = json2;*/
+          Contenedor conten = new Contenedor(products,products2);
            Gson gson= new Gson();
-           String jsonString= gson.toJson(str);
+           String jsonString= gson.toJson(conten);
            return Response.ok(jsonString,MediaType.APPLICATION_JSON).build();
-           
-           
-              //return  Response.ok(json,MediaType.APPLICATION_JSON).build();
-            // List<Product1> products2 = new ProductService().getAll1();
-          // String json2= new Gson().toJson(products2); 
-          
-               //  return Response.ok(json2,MediaType.APPLICATION_JSON).build();
-          
-          
        }
        catch(Exception ex){
            return Response.status(Response.Status.SEE_OTHER).entity("Error al obtener data...\n"+ ex.toString()).build();
        }
       
     }
-
+    
+    //Obtiene datos de Gt 
+    @GET
+    @Path("/gt")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getProductsgt() {
+        String json= null;
+       try{
+           List<Product> products = new ProductService().getAll();
+          json= new Gson().toJson(products); 
+          return Response.ok(json,MediaType.APPLICATION_JSON).build();
+       }
+       catch(Exception ex){
+           return Response.status(Response.Status.SEE_OTHER).entity("Error al obtener data...\n"+ ex.toString()).build();
+       }
+      
+    }
+    
+    //Obtiene datos de JT 
+    @GET
+    @Path("/jt")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getProductsjt() {
+        String json= null;
+       try{
+           List<Product1> products2 = new ProductService().getAll1();
+          json= new Gson().toJson(products2); 
+          return Response.ok(json,MediaType.APPLICATION_JSON).build();
+       }
+       catch(Exception ex){
+           return Response.status(Response.Status.SEE_OTHER).entity("Error al obtener data...\n"+ ex.toString()).build();
+       }
+      
+    }
+    
+    //Obtiene producto de Jutiapa
+     @GET
+    @Path("/jt/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getProductsjtid(@PathParam("id")int id) {
+        String json= null;
+       try{
+             List<Productjt> idjutiapa = new ProductService().getAll2(id);
+          json= new Gson().toJson(idjutiapa); 
+          return Response.ok(json,MediaType.APPLICATION_JSON).build();
+       }
+       catch(Exception ex){
+           return Response.status(Response.Status.SEE_OTHER).entity("Error al obtener data...\n"+ ex.toString()).build();
+       }
+      
+    }
+    
+    
+    //Obtiene producto de Guatemala
+     @GET
+    @Path("/gt/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getProductsgtid(@PathParam("id")int id) {
+        String json= null;
+       try{
+             List<Productgt> idguatemala = new ProductService().getAll3(id);
+          json= new Gson().toJson(idguatemala); 
+          return Response.ok(json,MediaType.APPLICATION_JSON).build();
+       }
+       catch(Exception ex){
+           return Response.status(Response.Status.SEE_OTHER).entity("Error al obtener data...\n"+ ex.toString()).build();
+       }
+      
+    }
+    
+    
     /**
      * PUT method for updating or creating an instance of PrductResource
      * @param content representation for the resource
