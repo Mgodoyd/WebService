@@ -14,10 +14,9 @@ import java.sql.SQLException;
  *
  * @author godoy
  */
-public class DB1config {
+public class DB1config { //conexion de Jutiapa
        public static Connection getconnection1() throws ClassNotFoundException {
         System.out.println("performing setup...");
-        // Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         String connectionUrl =
                 "jdbc:sqlserver://proyectoso2.database.windows.net:1433;"
                         + "database=dbjutiapa;"
@@ -28,23 +27,12 @@ public class DB1config {
                         + "loginTimeout=30;";
         System.out.println("selecting data...");
         
-          Connection connection= null;
-       // ResultSet resulSet = null;
+        Connection connection= null;
         try  {
              Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
              connection = DriverManager.getConnection(connectionUrl);
             System.out.println("Conectado a la db" + connection.getCatalog());
-          // String selectSql= "SELECT * FROM employee";
-         //  resultSet =  statement.execute(selectSql);
-           
-         /*  while(resulSet.next()){
-               System.out.println(resulSet.getString(2));
-         
-           
-           }*/
-           
         }
-        // Handle any errors that may have occurred.
         catch (SQLException e) {
            System.out.println("Error al Conectar..." +e.toString());
         }

@@ -9,7 +9,7 @@ import java.util.List;
 /**
  *
  * @author godoy
- */
+ */  //para poder almacenar las 2 listas y poder mostrar los productos de las 2 bases de datos
 public class Contenedor {
      
     private List<Product> products ;

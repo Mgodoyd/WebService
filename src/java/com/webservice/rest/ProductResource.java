@@ -5,6 +5,7 @@
 package com.webservice.rest;
 
 import com.google.gson.Gson;
+import com.webservice.conexion.dao.ChangeProductgt;
 import com.webservice.entidades.Product;
 import com.webservice.servicio.ProductService;
 import java.util.List;
@@ -19,11 +20,18 @@ import jakarta.ws.rs.PUT;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import com.webservice.conexion.dao.DB2config;
+import com.webservice.conexion.dao.ChangeProductjt;
 import com.webservice.entidades.Contenedor;
+import com.webservice.conexion.dao.LoginAdministrador;
 import com.webservice.entidades.Product1;
 import com.webservice.entidades.Productgt;
 import com.webservice.entidades.Productjt;
+import com.webservice.entidades.UserLogin;
+import jakarta.ws.rs.DELETE;
+import jakarta.ws.rs.POST;
 import jakarta.ws.rs.PathParam;
+import com.webservice.conexion.dao.LoginOperador;
+import static jakarta.ws.rs.client.Entity.json;
 
 /**
  * REST Web Service
@@ -49,6 +57,34 @@ public class ProductResource {
      * @return an instance of java.lang.String
      */
     
+      //login Operador
+    @Path("/operador/{correo}/{contrasena}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response autenticarOperador(@PathParam("correo")String correo, @PathParam("contrasena")String contrasena) throws ClassNotFoundException {
+       LoginOperador autentication = new  LoginOperador();
+       if(autentication.autenticar(correo, contrasena)){
+          return Response.ok("Bienvenido Operador",MediaType.APPLICATION_JSON).build();
+       }else{
+           return Response.ok("Error al iniciar sesion").build();
+       }
+    } 
+    
+    
+     //login Administrador
+    @Path("/administrador/{correo}/{contrasena}")
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response autenticarAdministrador(@PathParam("correo")String correo, @PathParam("contrasena")String contrasena) throws ClassNotFoundException {
+       LoginAdministrador autentication = new  LoginAdministrador();
+       if(autentication.autenticar(correo, contrasena)){
+          return Response.ok("Bienvenido Administrador",MediaType.APPLICATION_JSON).build();
+       }else{
+           return Response.ok("Error al iniciar sesion").build();
+       }
+    } 
+    
+    
     //Obtiene todos los datos 
     @GET
     @Path("/All")
@@ -59,11 +95,6 @@ public class ProductResource {
        try{
            List<Product> products = new ProductService().getAll();
            List<Product1> products2 = new ProductService().getAll1();
-          // json= new Gson().toJson(products); 
-          // json2= new Gson().toJson(products2); 
-       /*    String[] str = new String[2];
-           str[0] = json;
-           str[1] = json2;*/
           Contenedor conten = new Contenedor(products,products2);
            Gson gson= new Gson();
            String jsonString= gson.toJson(conten);
@@ -72,7 +103,6 @@ public class ProductResource {
        catch(Exception ex){
            return Response.status(Response.Status.SEE_OTHER).entity("Error al obtener data...\n"+ ex.toString()).build();
        }
-      
     }
     
     //Obtiene datos de Gt 
@@ -89,7 +119,6 @@ public class ProductResource {
        catch(Exception ex){
            return Response.status(Response.Status.SEE_OTHER).entity("Error al obtener data...\n"+ ex.toString()).build();
        }
-      
     }
     
     //Obtiene datos de JT 
@@ -106,7 +135,6 @@ public class ProductResource {
        catch(Exception ex){
            return Response.status(Response.Status.SEE_OTHER).entity("Error al obtener data...\n"+ ex.toString()).build();
        }
-      
     }
     
     //Obtiene producto de Jutiapa
@@ -120,15 +148,14 @@ public class ProductResource {
           json= new Gson().toJson(idjutiapa); 
           return Response.ok(json,MediaType.APPLICATION_JSON).build();
        }
-       catch(Exception ex){
+       catch(ClassNotFoundException ex){
            return Response.status(Response.Status.SEE_OTHER).entity("Error al obtener data...\n"+ ex.toString()).build();
        }
-      
     }
     
     
     //Obtiene producto de Guatemala
-     @GET
+    @GET
     @Path("/gt/{id}")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getProductsgtid(@PathParam("id")int id) {
@@ -138,19 +165,49 @@ public class ProductResource {
           json= new Gson().toJson(idguatemala); 
           return Response.ok(json,MediaType.APPLICATION_JSON).build();
        }
+       catch(ClassNotFoundException ex){
+           return Response.status(Response.Status.SEE_OTHER).entity("Error al obtener data...\n"+ ex.toString()).build();
+       }
+    }
+    
+    //borrar produtos de Jt
+    @DELETE
+    @Path("/jtdel/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteProductjt(@PathParam("id")int id) {
+        String json= null;
+       try{
+            boolean isDeleted = new ChangeProductjt().ChangeProductById(id);
+            if(isDeleted){
+                 json= new Gson().toJson(isDeleted); 
+                 return Response.ok("Stock Actualizado"+" " + json.toString(),MediaType.APPLICATION_JSON).build();
+            }else{
+                 return Response.ok("No Existe Id para actualizar el Stock" + " "+ json.toString(),MediaType.APPLICATION_JSON).build();
+            }
+       }
        catch(Exception ex){
            return Response.status(Response.Status.SEE_OTHER).entity("Error al obtener data...\n"+ ex.toString()).build();
        }
       
     }
     
-    
-    /**
-     * PUT method for updating or creating an instance of PrductResource
-     * @param content representation for the resource
-     */
-   /* @PUT
-    @Consumes(MediaType.APPLICATION_JSON)
-    public void putJson(String content) {
-    }*/
+    //borrar productos de gt
+ @DELETE
+    @Path("/gtdel/{id}")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response deleteProductgt(@PathParam("id")int id) {
+        String json= null;
+       try{
+            boolean isDeleted = new ChangeProductgt().ChangeProductById(id);
+            if(isDeleted){
+                 json= new Gson().toJson(isDeleted); 
+                 return Response.ok("Eliminado correctamente"+" " + json.toString(),MediaType.APPLICATION_JSON).build();
+            }else{
+                 return Response.ok("Error al Eliminar" + " "+ json.toString(),MediaType.APPLICATION_JSON).build();
+            }
+       }
+       catch(Exception ex){
+           return Response.status(Response.Status.SEE_OTHER).entity("Error al obtener data...\n"+ ex.toString()).build();
+       }
+    }
 }

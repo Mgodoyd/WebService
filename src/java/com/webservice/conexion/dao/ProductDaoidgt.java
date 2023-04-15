@@ -17,54 +17,55 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import static org.glassfish.soteria.Utils.isEmpty;
+import org.apache.commons.lang3.ArrayUtils;
 
 /**
  *
  * @author godoy
  */
-public class ProductDaoidgt {
+public class ProductDaoidgt {  //para obtener la lista de productos de GT
     public List<Productgt> getAll3(int id) throws ClassNotFoundException{
         List<Productgt> idguatemala = new ArrayList<Productgt>();
       
-      ResultSet resultSet = null;
+        ResultSet resultSet = null;
       
-       try (Connection connection= DB1config.getconnection1();) {
-            
+       try (Connection connection= DB2config.getconnection2();) {
+               //verifica las conexiones
               if(connection !=null){
                System.out.println("Conectado con exito...");   
-           }else{
+              }else{
                System.out.println("Error al conectar...");   
-           }
+              }
             
             java.sql.Statement statement =  connection.createStatement();
-            // Create and execute a SELECT SQL statement.
-           // Create and execute a SELECT SQL statement.
-            String selectSql = "SELECT * from dbo.PRODUCTS WHERE id="+ id + ";";
+            
+            String selectSql = "SELECT * from dbo.PRODUCTOS WHERE ID_PRODUCTO="+ id + ";";
             resultSet =   statement.executeQuery(selectSql);
 
-            // Print results from select statement
+            //selecciona los productos
             while (resultSet.next()) {
-                Productgt pdj = new Productgt();
-    pdj.setId(resultSet.getInt("id"));
-    pdj.setName( resultSet.getString("product"));
-    pdj.setPrecio(resultSet.getInt("precio"));
-    pdj.setImg(resultSet.getBytes("img"));
-        idguatemala.add(pdj);
+                Productgt pdg = new Productgt();
+         
+                pdg.setId_producto(resultSet.getInt("id_producto"));
+                pdg.setId_usuario(resultSet.getInt("id_usuario"));
+                pdg.setId_ubicacion(resultSet.getInt("id_ubicacion"));
+                pdg.setNombre(resultSet.getString("nombbre"));
+                pdg.setPrecio(resultSet.getInt("precio"));
+                byte[] imgBytes = resultSet.getBytes("img");
+                Byte[] img = ArrayUtils.toObject(imgBytes);
+                pdg.setImg(img);
+                pdg.setStock(resultSet.getInt("stock"));
+                pdg.setStock_minimo(resultSet.getInt("stock_minimo"));
+                idguatemala.add(pdg);
         
-             System.out.println("Data read from the database: " + pdj.toString());  
-       
+             System.out.println("Data read from the database: " + pdg.toString());  
             }
-            
-          
         }
         catch (SQLException e) {
             Logger.getLogger(ProductDao.class.getName()).log(Level.SEVERE,null, e.toString());
         }
-       
         return idguatemala;
     } 
-
 
     /*public List<Product1> getAll() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
