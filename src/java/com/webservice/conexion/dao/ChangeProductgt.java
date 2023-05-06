@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,7 +39,8 @@ public class ChangeProductgt {//actualizacion del stock Guatemala
             String selectSql1 = "SELECT * from dbo.PRODUCTOS WHERE ID_PRODUCTO="+ id + ";";
             java.sql.Statement statement2 =  connection2.createStatement();
             resultSet = statement2.executeQuery(selectSql1);
-        
+            
+            
         if (resultSet.next()) {//si existe el id en la base de datos de Guatemala entonces almaceno esos valores y los aguardo en variables
             System.out.println("Id" + " " + id + " " + "encontrado en la db:" + connection2);
             
@@ -51,27 +53,44 @@ public class ChangeProductgt {//actualizacion del stock Guatemala
                 int stock= resultSet.getInt("stock");
                 int stock_minimo = resultSet.getInt("stock_minimo");
                 
-             //seleccion si el id ya existe en la segunda base de datos para realizar el update correspondiente
+            /* //seleccion si el id ya existe en la segunda base de datos para realizar el update correspondiente
              PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM dbo.PRODUCTOS WHERE ID_PRODUCTO =" + id + ";");
-             ResultSet resultSet2 = pstmt.executeQuery();
+             ResultSet resultSet2 = pstmt.executeQuery();*/
+             
+              PreparedStatement pstmt = connection.prepareStatement("SELECT * FROM dbo.PRODUCTOS WHERE NOMBBRE=?");
+              pstmt.setString(1, productName);
+              ResultSet resultSet2 = pstmt.executeQuery();
 
         if (resultSet2.next()) {
            // El producto ya existe en la segunda base de datos, actualizar su stock
-            pstmt = connection.prepareStatement("UPDATE dbo.PRODUCTOS SET STOCK = STOCK + 1 WHERE ID_PRODUCTO =" + id + ";");
-            System.out.println("Stock agregado correctamente en la db1");
+             pstmt = connection.prepareStatement("UPDATE dbo.PRODUCTOS SET STOCK = STOCK + 1 WHERE NOMBBRE = ?;");
+               pstmt.setString(1,productName);
+               System.out.println("Stock agregado correctamente en la db2");
         } else {
-          // El producto no existe en la segunda base de datos, insertar una nueva fila
-            pstmt = connection.prepareStatement("INSERT INTO dbo.PRODUCTOS(ID_PRODUCTO,ID_USUARIO,ID_UBICACION,NOMBBRE,PRECIO,IMG,STOCK,STOCK_MINIMO) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-            pstmt.setInt(1, productId);
-            pstmt.setInt(2, userId);
-            pstmt.setInt(3, 1);
-            pstmt.setString(4, productName);
-            pstmt.setInt(5, productPrice);
-            pstmt.setBytes(6, productImage);
-            pstmt.setInt(7, 1);
-            pstmt.setInt(8, stock_minimo);
-        }
-           int rowsInsert = pstmt.executeUpdate();
+         // El producto no existe en la base de datos 2, insertar un nuevo registro
+                pstmt = connection.prepareStatement("INSERT INTO dbo.PRODUCTOS(ID_PRODUCTO,ID_USUARIO,ID_UBICACION,NOMBBRE,PRECIO,IMG,STOCK,STOCK_MINIMO) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+
+                // Obtener el último ID_PRODUCTO insertado en la base de datos 2 y agregarle 1 para obtener el siguiente ID
+                Statement stmt = connection.createStatement();
+                ResultSet resultSet3 = stmt.executeQuery("SELECT TOP 1 ID_PRODUCTO FROM dbo.PRODUCTOS ORDER BY ID_PRODUCTO DESC");
+
+                int nextId = 1;
+                if (resultSet3.next()) {
+                    nextId = resultSet3.getInt("ID_PRODUCTO") + 1;
+                }
+
+                pstmt.setInt(1, nextId);
+                pstmt.setInt(2, userId);
+                pstmt.setInt(3, 1);
+                pstmt.setString(4, productName);
+                pstmt.setInt(5, productPrice);
+                pstmt.setBytes(6, productImage);
+                pstmt.setInt(7, 1 );
+                pstmt.setInt(8, stock_minimo);
+                System.out.println("Producto insertado correctamente en la db2");
+            }
+             //inserta o actualiza los datos en la segunda base de datos
+             int rowsInsert = pstmt.executeUpdate();
 
        if(rowsInsert > 0){
            
