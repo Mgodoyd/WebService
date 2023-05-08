@@ -38,4 +38,3 @@ jobs:
           app-name: 'analisis-sistemas1'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FE2B9736B8F649938816C146ED3266AD }}
-          package: '*.jar'
