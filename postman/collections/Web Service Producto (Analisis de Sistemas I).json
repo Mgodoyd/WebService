@@ -1,0 +1,1443 @@
+{
+	"info": {
+		"_postman_id": "c679948d-2fc0-46d4-b05e-7d048a8ebd0f",
+		"name": "Web Service Producto (Analisis de Sistemas I)",
+		"description": "Proyecto del Curso de Analisis de Sistemas I, Septimo Semestre 2023\n\n# _**Login:**_\n\nse trabaja con 2 roles :\n\n| **Rol** | **Email** | **Password** |\n| --- | --- | --- |\n| Operador | [operador@gmail.com](mailto:operador@gmail.com) | 123 |\n| Administrador | [administrador@gmail.com](mailto:administrador@gmail.com) | 123 |",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "18340700-c679948d-2fc0-46d4-b05e-7d048a8ebd0f"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"item": [
+				{
+					"name": "http://localhost:8080/WebApplication1/web/Product/operador/operador@gmail.com/123",
+					"id": "2584687f-7bd2-4261-a4c6-ce7bdb3ff94e",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/WebApplication1/web/Product/operador/operador@gmail.com/123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"WebApplication1",
+								"web",
+								"Product",
+								"operador",
+								"operador@gmail.com",
+								"123"
+							]
+						},
+						"description": "StartFragment\n\nIniciar Sesión con el rol Operador\n\nEndF"
+					},
+					"response": [
+						{
+							"id": "03d17ee6-f8cb-4015-ab07-7270deda19ba",
+							"name": "Operador",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/operador/operador@gmail.com/123",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"operador",
+										"operador@gmail.com",
+										"123"
+									]
+								},
+								"description": "StartFragment\n\nIniciar Sesión con el rol Operador\n\nEndF"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Eclipse GlassFish  6.2.5"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"mensaje\": \"Bienvenido Operador\",\n    \"id_usuario\": 1\n}"
+						}
+					]
+				},
+				{
+					"name": "http://localhost:8080/WebApplication1/web/Product/administrador/administrador@gmail.com/123",
+					"id": "c4d62265-d4db-43ee-9a8a-d2e43d2d9d83",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/WebApplication1/web/Product/administrador/administrador@gmail.com/123",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"WebApplication1",
+								"web",
+								"Product",
+								"administrador",
+								"administrador@gmail.com",
+								"123"
+							]
+						},
+						"description": "Iniciar Sesión con el rol Administrador"
+					},
+					"response": [
+						{
+							"id": "fe29c37c-5777-4182-90fc-8a87dbbdc854",
+							"name": "Administrador",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/administrador/administrador@gmail.com/123",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"administrador",
+										"administrador@gmail.com",
+										"123"
+									]
+								},
+								"description": "Iniciar Sesión con el rol Administrador"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Server",
+									"value": "Eclipse GlassFish  6.2.5"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Content-Length",
+									"value": "53"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"mensaje\": \"Bienvenido Administrador\",\n    \"id_usuario\": 2\n}"
+						}
+					]
+				}
+			],
+			"id": "f1d14804-7385-458b-8517-a953965ef543",
+			"description": "Acceso de los distintos Roles"
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "List",
+					"item": [
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/All",
+							"id": "c3bb3bbd-f5cf-43c1-a16b-a6981f9af43b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/All",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"All"
+									]
+								},
+								"description": "Obtenemos todos los Productos de las 2 bases de datos (Guatemala--Jutiapa)"
+							},
+							"response": [
+								{
+									"id": "85107943-0522-4d9d-8fb9-4654e1baa8e5",
+									"name": "Obtener All Products 2 dbs",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/All",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"All"
+											]
+										},
+										"description": "Obtenemos todos los Productos de las 2 bases de datos (Guatemala--Jutiapa)"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1869"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"products\": [\n        {\n            \"id_producto\": 1,\n            \"id_usuario\": 2,\n            \"id_ubicacion\": 2,\n            \"nombbre\": \"Jamaica\",\n            \"precio\": 10,\n            \"img\": [\n                102,\n                105,\n                108,\n                101,\n                46,\n                112,\n                110,\n                103\n            ],\n            \"stock\": 39,\n            \"stock_minimo\": 5\n        },\n        {\n            \"id_producto\": 3,\n            \"id_usuario\": 2,\n            \"id_ubicacion\": 2,\n            \"nombbre\": \"Coca Cola\",\n            \"precio\": 15,\n            \"img\": [\n                102,\n                105,\n                108,\n                101,\n                51,\n                46,\n                112,\n                110,\n                103\n            ],\n            \"stock\": 5,\n            \"stock_minimo\": 10\n        },\n        {\n            \"id_producto\": 4,\n            \"id_usuario\": 2,\n            \"id_ubicacion\": 2,\n            \"nombbre\": \"orange\",\n            \"precio\": 7,\n            \"img\": [\n                102,\n                105,\n                108,\n                101,\n                50,\n                46,\n                112,\n                110,\n                103\n            ],\n            \"stock\": 9,\n            \"stock_minimo\": 2\n        },\n        {\n            \"id_producto\": 5,\n            \"id_usuario\": 2,\n            \"id_ubicacion\": 2,\n            \"nombbre\": \"Uva\",\n            \"precio\": 11,\n            \"img\": [\n                102,\n                105,\n                108,\n                101,\n                51,\n                46,\n                112,\n                110,\n                103\n            ],\n            \"stock\": 1,\n            \"stock_minimo\": 10\n        },\n        {\n            \"id_producto\": 6,\n            \"id_usuario\": 2,\n            \"id_ubicacion\": 2,\n            \"nombbre\": \"Te\",\n            \"precio\": 8,\n            \"img\": [\n                102,\n                105,\n                108,\n                101,\n                51,\n                46,\n                112,\n                110,\n                103\n            ],\n            \"stock\": 7,\n            \"stock_minimo\": 3\n        },\n        {\n            \"id_producto\": 7,\n            \"id_usuario\": 2,\n            \"id_ubicacion\": 2,\n            \"nombbre\": \"Cafe\",\n            \"precio\": 12,\n            \"img\": [\n                102,\n                105,\n                108,\n                101,\n                52,\n                46,\n                112,\n                110,\n                103\n            ],\n            \"stock\": 12,\n            \"stock_minimo\": 5\n        },\n        {\n            \"id_producto\": 8,\n            \"id_usuario\": 2,\n            \"id_ubicacion\": 2,\n            \"nombbre\": \"Te Limon\",\n            \"precio\": 15,\n            \"img\": [\n                102,\n                105,\n                108,\n                101,\n                53,\n                46,\n                112,\n                110,\n                103\n            ],\n            \"stock\": 17,\n            \"stock_minimo\": 10\n        },\n        {\n            \"id_producto\": 9,\n            \"id_usuario\": 2,\n            \"id_ubicacion\": 2,\n            \"nombbre\": \"Te Verde\",\n            \"precio\": 9,\n            \"img\": [\n                102,\n                105,\n                101,\n                108,\n                54,\n                46,\n                112,\n                110,\n                103\n            ],\n            \"stock\": 2,\n            \"stock_minimo\": 6\n        }\n    ],\n    \"products2\": [\n        {\n            \"id_producto\": 18,\n            \"id_usuario\": 1,\n            \"id_ubicacion\": 1,\n            \"nombre\": \"Te limon\",\n            \"precio\": 10,\n            \"img\": [\n                90,\n                109,\n                108,\n                115,\n                90,\n                83,\n                53,\n                119,\n                98,\n                109,\n                99,\n                61\n            ],\n            \"stock\": 10,\n            \"stock_minimo\": 20\n        },\n        {\n            \"id_producto\": 19,\n            \"id_usuario\": 1,\n            \"id_ubicacion\": 1,\n            \"nombre\": \"Pepsi\",\n            \"precio\": 15,\n            \"img\": [\n                90,\n                109,\n                108,\n                115,\n                90,\n                83,\n                53,\n                119,\n                98,\n                109,\n                99,\n                61\n            ],\n            \"stock\": 100,\n            \"stock_minimo\": 20\n        },\n        {\n            \"id_producto\": 20,\n            \"id_usuario\": 1,\n            \"id_ubicacion\": 1,\n            \"nombre\": \"Coca cola\",\n            \"precio\": 12,\n            \"img\": [\n                90,\n                109,\n                108,\n                115,\n                90,\n                83,\n                53,\n                119,\n                98,\n                109,\n                99,\n                61\n            ],\n            \"stock\": 18,\n            \"stock_minimo\": 20\n        },\n        {\n            \"id_producto\": 21,\n            \"id_usuario\": 1,\n            \"id_ubicacion\": 1,\n            \"nombre\": \"Naranja\",\n            \"precio\": 15,\n            \"img\": [\n                90,\n                109,\n                108,\n                115,\n                90,\n                83,\n                53,\n                119,\n                98,\n                109,\n                99,\n                61\n            ],\n            \"stock\": 70,\n            \"stock_minimo\": 20\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/gt",
+							"id": "08bf8b96-9cfc-4574-9b25-e83b392eaddf",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/gt",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"gt"
+									]
+								},
+								"description": "Obtenemos todos los Productos de Guatemala"
+							},
+							"response": [
+								{
+									"id": "850454db-34de-4e99-96b3-e697f65f7530",
+									"name": "Get Products GT",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/gt",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"gt"
+											]
+										},
+										"description": "Obtenemos todos los Productos de Guatemala"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "1200"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id_producto\": 1,\n        \"id_usuario\": 2,\n        \"id_ubicacion\": 2,\n        \"nombbre\": \"Jamaica\",\n        \"precio\": 10,\n        \"img\": [\n            102,\n            105,\n            108,\n            101,\n            46,\n            112,\n            110,\n            103\n        ],\n        \"stock\": 39,\n        \"stock_minimo\": 5\n    },\n    {\n        \"id_producto\": 3,\n        \"id_usuario\": 2,\n        \"id_ubicacion\": 2,\n        \"nombbre\": \"Coca Cola\",\n        \"precio\": 15,\n        \"img\": [\n            102,\n            105,\n            108,\n            101,\n            51,\n            46,\n            112,\n            110,\n            103\n        ],\n        \"stock\": 5,\n        \"stock_minimo\": 10\n    },\n    {\n        \"id_producto\": 4,\n        \"id_usuario\": 2,\n        \"id_ubicacion\": 2,\n        \"nombbre\": \"orange\",\n        \"precio\": 7,\n        \"img\": [\n            102,\n            105,\n            108,\n            101,\n            50,\n            46,\n            112,\n            110,\n            103\n        ],\n        \"stock\": 9,\n        \"stock_minimo\": 2\n    },\n    {\n        \"id_producto\": 5,\n        \"id_usuario\": 2,\n        \"id_ubicacion\": 2,\n        \"nombbre\": \"Uva\",\n        \"precio\": 11,\n        \"img\": [\n            102,\n            105,\n            108,\n            101,\n            51,\n            46,\n            112,\n            110,\n            103\n        ],\n        \"stock\": 1,\n        \"stock_minimo\": 10\n    },\n    {\n        \"id_producto\": 6,\n        \"id_usuario\": 2,\n        \"id_ubicacion\": 2,\n        \"nombbre\": \"Te\",\n        \"precio\": 8,\n        \"img\": [\n            102,\n            105,\n            108,\n            101,\n            51,\n            46,\n            112,\n            110,\n            103\n        ],\n        \"stock\": 7,\n        \"stock_minimo\": 3\n    },\n    {\n        \"id_producto\": 7,\n        \"id_usuario\": 2,\n        \"id_ubicacion\": 2,\n        \"nombbre\": \"Cafe\",\n        \"precio\": 12,\n        \"img\": [\n            102,\n            105,\n            108,\n            101,\n            52,\n            46,\n            112,\n            110,\n            103\n        ],\n        \"stock\": 12,\n        \"stock_minimo\": 5\n    },\n    {\n        \"id_producto\": 8,\n        \"id_usuario\": 2,\n        \"id_ubicacion\": 2,\n        \"nombbre\": \"Te Limon\",\n        \"precio\": 15,\n        \"img\": [\n            102,\n            105,\n            108,\n            101,\n            53,\n            46,\n            112,\n            110,\n            103\n        ],\n        \"stock\": 17,\n        \"stock_minimo\": 10\n    },\n    {\n        \"id_producto\": 9,\n        \"id_usuario\": 2,\n        \"id_ubicacion\": 2,\n        \"nombbre\": \"Te Verde\",\n        \"precio\": 9,\n        \"img\": [\n            102,\n            105,\n            101,\n            108,\n            54,\n            46,\n            112,\n            110,\n            103\n        ],\n        \"stock\": 2,\n        \"stock_minimo\": 6\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/jt",
+							"id": "c052f574-20c1-42a3-8f59-55bf68dad0fe",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/jt",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"jt"
+									]
+								},
+								"description": "StartFragment\n\nObtenemos todos los Productos de Jutiapa\n\nEndFragment"
+							},
+							"response": [
+								{
+									"id": "af2129ba-4306-4949-8339-9d1d81bf2daa",
+									"name": "Get Products JT",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/jt",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"jt"
+											]
+										},
+										"description": "StartFragment\n\nObtenemos todos los Productos de Jutiapa\n\nEndFragment"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "643"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id_producto\": 18,\n        \"id_usuario\": 1,\n        \"id_ubicacion\": 1,\n        \"nombre\": \"Te limon\",\n        \"precio\": 10,\n        \"img\": [\n            90,\n            109,\n            108,\n            115,\n            90,\n            83,\n            53,\n            119,\n            98,\n            109,\n            99,\n            61\n        ],\n        \"stock\": 10,\n        \"stock_minimo\": 20\n    },\n    {\n        \"id_producto\": 19,\n        \"id_usuario\": 1,\n        \"id_ubicacion\": 1,\n        \"nombre\": \"Pepsi\",\n        \"precio\": 15,\n        \"img\": [\n            90,\n            109,\n            108,\n            115,\n            90,\n            83,\n            53,\n            119,\n            98,\n            109,\n            99,\n            61\n        ],\n        \"stock\": 100,\n        \"stock_minimo\": 20\n    },\n    {\n        \"id_producto\": 20,\n        \"id_usuario\": 1,\n        \"id_ubicacion\": 1,\n        \"nombre\": \"Coca cola\",\n        \"precio\": 12,\n        \"img\": [\n            90,\n            109,\n            108,\n            115,\n            90,\n            83,\n            53,\n            119,\n            98,\n            109,\n            99,\n            61\n        ],\n        \"stock\": 18,\n        \"stock_minimo\": 20\n    },\n    {\n        \"id_producto\": 21,\n        \"id_usuario\": 1,\n        \"id_ubicacion\": 1,\n        \"nombre\": \"Naranja\",\n        \"precio\": 15,\n        \"img\": [\n            90,\n            109,\n            108,\n            115,\n            90,\n            83,\n            53,\n            119,\n            98,\n            109,\n            99,\n            61\n        ],\n        \"stock\": 70,\n        \"stock_minimo\": 20\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/gt/6",
+							"id": "6fe107fa-04ff-45b5-b872-dce8c823c732",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/gt/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"gt",
+										"6"
+									]
+								},
+								"description": "StartFragment\n\nObtenemos el Producto de Guatemala por ID\n\nEndFragment"
+							},
+							"response": [
+								{
+									"id": "0d6dfe22-cd5e-4b9c-b605-3e750b95ba95",
+									"name": "Get Product by ID",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/gt/6",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"gt",
+												"6"
+											]
+										},
+										"description": "StartFragment\n\nObtenemos el Producto de Guatemala por ID\n\nEndFragment"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "146"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id_producto\": 6,\n        \"id_usuario\": 2,\n        \"id_ubicacion\": 2,\n        \"nombbre\": \"Te\",\n        \"precio\": 8,\n        \"img\": [\n            102,\n            105,\n            108,\n            101,\n            51,\n            46,\n            112,\n            110,\n            103\n        ],\n        \"stock\": 7,\n        \"stock_minimo\": 3\n    }\n]"
+								}
+							]
+						},
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/jt/18",
+							"id": "7f66d7e4-ccb0-4d0b-a3d9-ee2e8dd29737",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/jt/18",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"jt",
+										"18"
+									]
+								},
+								"description": "Obtenemos el Producto de Jutiapa por ID"
+							},
+							"response": [
+								{
+									"id": "6d25fdcd-5409-4424-b8b5-8537be4e9098",
+									"name": "Get Product by ID",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/jt/18",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"jt",
+												"18"
+											]
+										},
+										"description": "Obtenemos el Producto de Jutiapa por ID"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "162"
+										}
+									],
+									"cookie": [],
+									"body": "[\n    {\n        \"id_producto\": 18,\n        \"id_usuario\": 1,\n        \"id_ubicacion\": 1,\n        \"nombbre\": \"Te limon\",\n        \"precio\": 10,\n        \"img\": [\n            90,\n            109,\n            108,\n            115,\n            90,\n            83,\n            53,\n            119,\n            98,\n            109,\n            99,\n            61\n        ],\n        \"stock\": 9,\n        \"stock_minimo\": 20\n    }\n]"
+								}
+							]
+						}
+					],
+					"id": "eb0b7591-c9a2-4d75-b643-1cc5e5357bf2",
+					"description": "Se listan todos los Productos"
+				},
+				{
+					"name": "Delete",
+					"item": [
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/gtdel/3",
+							"id": "23c276ab-3de4-43a7-a9e4-348247737e3c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/gtdel/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"gtdel",
+										"3"
+									]
+								},
+								"description": "Manejo del Stock por ID de Guatemala a Jutiapa"
+							},
+							"response": [
+								{
+									"id": "a9b8e0f3-78e5-4d65-979d-e2ca2a9b6c24",
+									"name": "Switch Products GT -> JT",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/gtdel/3",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"gtdel",
+												"3"
+											]
+										},
+										"description": "Manejo del Stock por ID de Guatemala a Jutiapa"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "17"
+										}
+									],
+									"cookie": [],
+									"body": "Stock Actualizado"
+								}
+							]
+						},
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/jtdel/18",
+							"id": "66169b2a-0999-4809-9fdc-6de7adb2d911",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/jtdel/18",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"jtdel",
+										"18"
+									]
+								},
+								"description": "Manejo del Stock por ID de Jutiapa a Guatemala"
+							},
+							"response": [
+								{
+									"id": "8ed40909-24a1-4596-bdc6-0532ad35f8b1",
+									"name": "Switch Products JT -> GT",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/jtdel/18",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"jtdel",
+												"18"
+											]
+										},
+										"description": "Manejo del Stock por ID de Jutiapa a Guatemala"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "22"
+										}
+									],
+									"cookie": [],
+									"body": "Stock Actualizado true"
+								}
+							]
+						},
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/gt/7",
+							"id": "8819bb00-a89d-4daf-bbe5-8fd152a8961b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/gt/7",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"gt",
+										"7"
+									]
+								},
+								"description": "Eliminamos Productos de Guatemala"
+							},
+							"response": [
+								{
+									"id": "d4920411-dd41-4559-a0a6-fa77f5834025",
+									"name": "Delete by ID GT",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/gt/7",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"gt",
+												"7"
+											]
+										},
+										"description": "Eliminamos Productos de Guatemala"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										}
+									],
+									"cookie": [],
+									"body": "Producto Eliminado correctamente"
+								}
+							]
+						},
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/jt/19",
+							"id": "4ee0b970-da37-411a-96ad-1cc25cfb9a39",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/jt/19",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"jt",
+										"19"
+									]
+								},
+								"description": "Eliminamos Productos de Jutiapa"
+							},
+							"response": [
+								{
+									"id": "9485ae0e-7f49-48b8-924d-a4e29c3e4461",
+									"name": "Delete by ID JT",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/jt/19",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"jt",
+												"19"
+											]
+										},
+										"description": "Eliminamos Productos de Jutiapa"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										}
+									],
+									"cookie": [],
+									"body": "Producto Eliminado correctamente"
+								}
+							]
+						}
+					],
+					"id": "f231123c-b577-4f7e-aff8-87e0b6ef473b",
+					"description": "Eliminar Productos y Manejo del Stock"
+				},
+				{
+					"name": "Insert",
+					"item": [
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/insert/gt",
+							"id": "af7ff8ef-8989-4871-8ca6-7be2aad03caa",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "NOMBRE",
+											"value": "Té Frio ",
+											"type": "text"
+										},
+										{
+											"key": "PRECIO",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "IMG",
+											"type": "file",
+											"src": "/C:/Users/godoy/Downloads/car-5863088_640.jpg"
+										},
+										{
+											"key": "STOCK",
+											"value": "100",
+											"type": "text"
+										},
+										{
+											"key": "STOCK_MINIMO",
+											"value": "25",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/insert/gt",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"insert",
+										"gt"
+									]
+								},
+								"description": "Insertamos Productos en Guatemala"
+							},
+							"response": [
+								{
+									"id": "71e8d9e3-196b-4fb5-8924-92ab29dc03f4",
+									"name": "Insert Product GT",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "NOMBRE",
+													"value": "Té Frio ",
+													"type": "text"
+												},
+												{
+													"key": "PRECIO",
+													"value": "5",
+													"type": "text"
+												},
+												{
+													"key": "IMG",
+													"type": "file",
+													"src": "/C:/Users/godoy/Downloads/car-5863088_640.jpg"
+												},
+												{
+													"key": "STOCK",
+													"value": "100",
+													"type": "text"
+												},
+												{
+													"key": "STOCK_MINIMO",
+													"value": "25",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/insert/gt",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"insert",
+												"gt"
+											]
+										},
+										"description": "Insertamos Productos en Guatemala"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										}
+									],
+									"cookie": [],
+									"body": "Producto Insertado Correctamente"
+								}
+							]
+						},
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/insert/jt",
+							"id": "bc45b42f-c113-4328-b0e4-87665774988d",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "NOMBRE",
+											"value": "Orange",
+											"type": "text"
+										},
+										{
+											"key": "PRECIO",
+											"value": "15",
+											"type": "text"
+										},
+										{
+											"key": "IMG",
+											"type": "file",
+											"src": "/C:/Users/godoy/Downloads/carbon.png"
+										},
+										{
+											"key": "STOCK",
+											"value": "75",
+											"type": "text"
+										},
+										{
+											"key": "STOCK_MINIMO",
+											"value": "20",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/insert/jt",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"insert",
+										"jt"
+									]
+								},
+								"description": "Insertamos Productos en Jutiapa"
+							},
+							"response": [
+								{
+									"id": "86393b7f-6a23-4e23-b0f2-f917c3a213cf",
+									"name": "Insert Product JT",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "NOMBRE",
+													"value": "Orange",
+													"type": "text"
+												},
+												{
+													"key": "PRECIO",
+													"value": "15",
+													"type": "text"
+												},
+												{
+													"key": "IMG",
+													"type": "file",
+													"src": "/C:/Users/godoy/Downloads/carbon.png"
+												},
+												{
+													"key": "STOCK",
+													"value": "75",
+													"type": "text"
+												},
+												{
+													"key": "STOCK_MINIMO",
+													"value": "20",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/insert/jt",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"insert",
+												"jt"
+											]
+										},
+										"description": "Insertamos Productos en Jutiapa"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "32"
+										}
+									],
+									"cookie": [],
+									"body": "Producto Insertado Correctamente"
+								}
+							]
+						}
+					],
+					"id": "3b0344b4-ef2f-4778-96eb-df1f14e289bb",
+					"description": "Insertamos los Productos"
+				},
+				{
+					"name": "Update",
+					"item": [
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/update/gt/6",
+							"id": "427e4229-e409-4656-8e0b-0801aef78178",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "NOMBRE",
+											"value": "Té Verde ",
+											"type": "text"
+										},
+										{
+											"key": "PRECIO",
+											"value": "8",
+											"type": "text"
+										},
+										{
+											"key": "IMG",
+											"type": "file",
+											"src": "/C:/Users/godoy/Downloads/car-5863088_640.jpg"
+										},
+										{
+											"key": "STOCK",
+											"value": "133",
+											"type": "text"
+										},
+										{
+											"key": "STOCK_MINIMO",
+											"value": "25",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/update/gt/6",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"update",
+										"gt",
+										"6"
+									]
+								},
+								"description": "Actualizamos Productos de Guatemala"
+							},
+							"response": [
+								{
+									"id": "73fbe967-0604-44f3-9bf8-6cb160139f0c",
+									"name": "Update Products GT",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "NOMBRE",
+													"value": "Té Verde ",
+													"type": "text"
+												},
+												{
+													"key": "PRECIO",
+													"value": "8",
+													"type": "text"
+												},
+												{
+													"key": "IMG",
+													"type": "file",
+													"src": "/C:/Users/godoy/Downloads/car-5863088_640.jpg"
+												},
+												{
+													"key": "STOCK",
+													"value": "133",
+													"type": "text"
+												},
+												{
+													"key": "STOCK_MINIMO",
+													"value": "25",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/update/gt/6",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"update",
+												"gt",
+												"6"
+											]
+										},
+										"description": "Actualizamos Productos de Guatemala"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										}
+									],
+									"cookie": [],
+									"body": "Producto actualizado Correctamente"
+								}
+							]
+						},
+						{
+							"name": "http://localhost:8080/WebApplication1/web/Product/update/jt/20",
+							"id": "e1124d36-8638-4dd0-8055-9947c7f8a836",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "NOMBRE",
+											"value": "Coca Cola",
+											"type": "text"
+										},
+										{
+											"key": "PRECIO",
+											"value": "15",
+											"type": "text"
+										},
+										{
+											"key": "IMG",
+											"type": "file",
+											"src": "/C:/Users/godoy/Downloads/car-5863088_640.jpg"
+										},
+										{
+											"key": "STOCK",
+											"value": "75",
+											"type": "text"
+										},
+										{
+											"key": "STOCK_MINIMO",
+											"value": "20",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/WebApplication1/web/Product/update/jt/20",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"WebApplication1",
+										"web",
+										"Product",
+										"update",
+										"jt",
+										"20"
+									]
+								},
+								"description": "Actualizamos Productos de Jutiapa"
+							},
+							"response": [
+								{
+									"id": "9dd0b4e1-1c4f-4afc-bd7d-dae2d073f1a5",
+									"name": "Update Products JT",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "NOMBRE",
+													"value": "Coca Cola",
+													"type": "text"
+												},
+												{
+													"key": "PRECIO",
+													"value": "15",
+													"type": "text"
+												},
+												{
+													"key": "IMG",
+													"type": "file",
+													"src": "/C:/Users/godoy/Downloads/car-5863088_640.jpg"
+												},
+												{
+													"key": "STOCK",
+													"value": "75",
+													"type": "text"
+												},
+												{
+													"key": "STOCK_MINIMO",
+													"value": "20",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:8080/WebApplication1/web/Product/update/jt/20",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "8080",
+											"path": [
+												"WebApplication1",
+												"web",
+												"Product",
+												"update",
+												"jt",
+												"20"
+											]
+										},
+										"description": "Actualizamos Productos de Jutiapa"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "Eclipse GlassFish  6.2.5"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "Servlet/5.0 JSP/3.0(Eclipse GlassFish  6.2.5  Java/Oracle Corporation/16)"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "34"
+										}
+									],
+									"cookie": [],
+									"body": "Producto actualizado Correctamente"
+								}
+							]
+						}
+					],
+					"id": "4ed77f96-fc21-403f-95e2-5761e0ad84e9",
+					"description": "Actualizamos los Productos"
+				}
+			],
+			"id": "b8189187-2a56-49e9-ba2b-b5a2ee829609",
+			"description": "Se realiza el CRUD de los Productos"
+		}
+	]
+}
