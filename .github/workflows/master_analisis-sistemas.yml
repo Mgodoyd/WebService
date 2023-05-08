@@ -22,12 +22,6 @@ jobs:
           java-version: '17'
 
 
-      - name: Upload artifact for deployment job
-        uses: actions/upload-artifact@v2
-        with:
-          name: java-app
-          path: '${{ github.workspace }}/target/*.war'
-
   deploy:
     runs-on: windows-latest
     needs: build
@@ -36,10 +30,6 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
     steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: java-app
 
       - name: Deploy to Azure Web App
         id: deploy-to-webapp
