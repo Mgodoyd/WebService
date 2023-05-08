@@ -38,4 +38,3 @@ jobs:
           app-name: 'analisis-sistemas'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A00D17438121487C8EEE4B17D1C6277B }}
-          package: '*.war'
