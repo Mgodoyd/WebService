@@ -30,6 +30,7 @@ jobs:
         shell: pwsh
         run: |
           pushd './${{ env.PACKAGE_DIRECTORY }}'
+          mvn clean package
           popd
       - name: 'Run Azure Functions Action'
         uses: Azure/functions-action@v1
@@ -37,6 +38,6 @@ jobs:
         with:
           app-name: 'ProjecASI'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_498745E7BD0A46CC91CD4A46FCEBDC42 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_A4525748F59549F197E630ABDD6FC078 }}
           package: '${{ env.PACKAGE_DIRECTORY }}'
           respect-pom-xml: true
